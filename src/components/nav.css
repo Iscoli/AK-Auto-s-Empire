@@ -1,0 +1,52 @@
+/* Custom transitions */
+.transition-all {
+  transition-property: all;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.ease-out {
+  transition-timing-function: ease-out;
+}
+
+/* Mobile menu height control */
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+/* Add these styles to your nav.css file */
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: white; /* or your text-background color */
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Optional: Add hover effect */
+button:hover .hamburger-line {
+  background-color: var(--accent-color); /* or your accent color */
+}
+
+
+/* nav.css */
+.mobile-menu-item {
+  padding-top: 20px; /* Adjust the padding as needed */
+  padding-bottom: 20px; /* Adjust the padding as needed */
+  font-weight: bold; /* Make the text bold */
+}
