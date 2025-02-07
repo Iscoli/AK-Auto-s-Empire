@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-
+import Akin from "../assets/AkAutos.png";
+import AK from "../assets/AkAutos.png";
 
 
 // About Us Page
@@ -8,7 +9,7 @@ export const AboutUsPage = () => {
     {
       name: "Olaegbe John Akinola",
       role: "Founder & CEO",
-      image: "/src/assets/Brother Akin.jpg",
+      image: Akin,
       bio: "With over 15 years in the automotive industry, Mr Akinola founded AK Auto's Empire with a vision to revolutionize the car buying experience in Abuja.",
     }
     // {
@@ -116,7 +117,7 @@ export const AboutUsPage = () => {
               className="relative h-96"
             >
               <img
-                src="/src/assets/AkWorkshop.png"
+                src={AK}
                 alt="Our Showroom"
                 className="rounded-xl shadow-xl w-full h-full object-cover"
               />
