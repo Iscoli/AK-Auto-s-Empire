@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Akin from "../assets/AkAutos.png";
+import Akin from "../assets/Brother Akin.jpg";
 import AK from "../assets/AkAutos.png";
 
 
