@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "../assets/AK2.jpeg";
+import LogoImage from "../assets/Ak2.jpeg";
 // Import FontAwesome icons - make sure you have @fortawesome/react-fontawesome installed
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
