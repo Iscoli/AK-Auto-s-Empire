@@ -5,7 +5,7 @@ import LogoImage from "../assets/AK2.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const Nav = () => {
+const Navbarr = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -64,12 +64,12 @@ const Nav = () => {
           {list.map((item) => (
             <Link to={item.link} key={item.name}>
               <li className="py-2">
-                <a
+                <p
                   href={`#${item.name.toLowerCase()}`}
                   className="text-background hover:text-accent transition-colors duration-300 text-lg font-medium px-4 py-2"
                 >
                   {item.name}
-                </a>
+                </p>
               </li>
             </Link>
           ))}
@@ -111,4 +111,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbarr;

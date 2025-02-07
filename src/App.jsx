@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import { useLocation } from "react-router-dom";
 import  InventoryPage  from "./pages/InventoryPage";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbarr";
 import  AboutUsPage  from "./pages/AboutUsPage";
 import   handler from "./pages/InventoryPage"
 
