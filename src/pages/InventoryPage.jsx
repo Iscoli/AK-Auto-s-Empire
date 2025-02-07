@@ -11,12 +11,12 @@ const InventoryPage = () => {
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch("/api/listings");
-
+      const response = await fetch(
+        "https://ak-auto-s-empire-backendd.onrender.com/api/listings"
+      ); // Use environment variable for API URL
       if (!response.ok) {
         throw new Error("Failed to fetch vehicles");
       }
-
       const data = await response.json();
 
       // Transform API data
@@ -49,7 +49,10 @@ const InventoryPage = () => {
   // Pagination logic
   const indexOfLastVehicle = currentPage * vehiclesPerPage;
   const indexOfFirstVehicle = indexOfLastVehicle - vehiclesPerPage;
-  const currentVehicles = vehicles.slice(indexOfFirstVehicle, indexOfLastVehicle);
+  const currentVehicles = vehicles.slice(
+    indexOfFirstVehicle,
+    indexOfLastVehicle
+  );
 
   // Change page
   const paginate = (pageNumber) => {
@@ -149,9 +152,15 @@ const InventoryPage = () => {
                         {vehicle.price}
                       </p>
                       <div className="space-y-2 mb-4">
-                        <p className="text-gray-600">Mileage: {vehicle.mileage}</p>
-                        <p className="text-gray-600">Location: {vehicle.location}</p>
-                        <p className="text-gray-600">Dealer: {vehicle.dealerName}</p>
+                        <p className="text-gray-600">
+                          Mileage: {vehicle.mileage}
+                        </p>
+                        <p className="text-gray-600">
+                          Location: {vehicle.location}
+                        </p>
+                        <p className="text-gray-600">
+                          Dealer: {vehicle.dealerName}
+                        </p>
                         <div className="flex gap-2">
                           <span className="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">
                             {vehicle.bodyType}
@@ -166,7 +175,7 @@ const InventoryPage = () => {
                         whileTap={{ scale: 0.95 }}
                         className="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition-colors"
                       >
-                     Contact Us 
+                        Contact Us
                       </motion.button>
                     </div>
                   </motion.div>
@@ -177,22 +186,22 @@ const InventoryPage = () => {
               <div className="flex justify-center mt-12">
                 <nav>
                   <ul className="flex space-x-2">
-                    {Array.from({ length: Math.ceil(vehicles.length / vehiclesPerPage) }).map(
-                      (_, index) => (
-                        <li key={index}>
-                          <button
-                            onClick={() => paginate(index + 1)}
-                            className={`px-4 py-2 rounded-lg ${
-                              currentPage === index + 1
-                                ? "bg-blue-900 text-white"
-                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                            }`}
-                          >
-                            {index + 1}
-                          </button>
-                        </li>
-                      )
-                    )}
+                    {Array.from({
+                      length: Math.ceil(vehicles.length / vehiclesPerPage),
+                    }).map((_, index) => (
+                      <li key={index}>
+                        <button
+                          onClick={() => paginate(index + 1)}
+                          className={`px-4 py-2 rounded-lg ${
+                            currentPage === index + 1
+                              ? "bg-blue-900 text-white"
+                              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                          }`}
+                        >
+                          {index + 1}
+                        </button>
+                      </li>
+                    ))}
                   </ul>
                 </nav>
               </div>
@@ -205,63 +214,3 @@ const InventoryPage = () => {
 };
 
 export default InventoryPage;
-
-
-
-
-
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-
-// export const InventoryPage = () => {
-//   const [vehicles, setVehicles] = useState([]);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     axios
-//       .get("/api/vehicles")
-//       .then((response) => {
-//         // Log the entire response to see what you are getting
-//         console.log("Fetched vehicles:", response.data);
-//         setVehicles(response.data.records);
-//       })
-//       .catch((err) => {
-//         console.error("Error fetching vehicles:", err);
-//         setError(err);
-//       });
-//   }, []);
-
-//   if (error) {
-//     return <div>Error: {error.message}</div>;
-//   }
-
-//   if (vehicles.length === 0) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div>
-//       {vehicles.map((vehicle) => (
-//         <div key={vehicle.id}>
-//           <h2>
-//             {vehicle.year} {vehicle.make} {vehicle.model}
-//           </h2>
-//           <img
-//             src={vehicle.primaryPhotoUrl}
-//             alt={`${vehicle.make} ${vehicle.model}`}
-//             className="w-full"
-//           />
-//           <p>Price: {vehicle.price}</p>
-//           <p>Mileage: {vehicle.mileage}</p>
-//           <p>
-//             Location: {vehicle.city}, {vehicle.state}
-//           </p>
-//           {/* More vehicle details as needed */}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default InventoryPage;
-
